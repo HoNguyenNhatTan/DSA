@@ -1,0 +1,14 @@
+#Bài 5: Điều kiện phức tạp
+
+Tìm kiếm tuyến tính không cần mảng sắp xếp.
+
+Vì thuật toán chỉ duyệt từng phần tử để kiểm tra.
+
+So sánh với tìm kiếm nhị phân:
+Tìm kiếm tuyến tính:
+  - Không cần sắp xếp
+  - Độ phức tạp O(n)
+
+Tìm kiếm nhị phân:
+  - Bắt buộc mảng phải sắp xếp
+  - Độ phức tạp O(log n)
