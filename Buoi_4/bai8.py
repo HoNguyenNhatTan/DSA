@@ -1,18 +1,15 @@
-def trang_thai_k_buoc(arr, k):
+def tim_chi_so_nho_nhat(arr, start):
 
-    for i in range(1, k + 1):
-        key = arr[i]
-        j = i - 1
+    min_index = start
 
-        while j >= 0 and arr[j] > key:
-            arr[j + 1] = arr[j]
-            j -= 1
+    for i in range(start + 1, len(arr)):
 
-        arr[j + 1] = key
+        if arr[i] < arr[min_index]:
+            min_index = i
 
-    return arr
+    return min_index
 
 
-arr = [4, 3, 2, 1]
+arr = [9, 3, 7, 1, 5]
 
-print(trang_thai_k_buoc(arr, 1))
+print(tim_chi_so_nho_nhat(arr, 1))

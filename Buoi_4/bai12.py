@@ -1,18 +1,27 @@
-def sap_xep_do_dai_chuoi(arr):
+def selection_on_dinh(arr):
 
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
+    n = len(arr)
 
-        while j >= 0 and len(arr[j]) > len(key):
-            arr[j + 1] = arr[j]
-            j -= 1
+    for i in range(n):
 
-        arr[j + 1] = key
+        min_index = i
+
+        for j in range(i + 1, n):
+
+            if arr[j][0] < arr[min_index][0]:
+                min_index = j
+
+        key = arr[min_index]
+
+        while min_index > i:
+            arr[min_index] = arr[min_index - 1]
+            min_index -= 1
+
+        arr[i] = key
 
     return arr
 
 
-arr = ['abc', 'a', 'ab']
+arr = [(2, 'a'), (2, 'b'), (1, 'c')]
 
-print(sap_xep_do_dai_chuoi(arr))
+print(selection_on_dinh(arr))

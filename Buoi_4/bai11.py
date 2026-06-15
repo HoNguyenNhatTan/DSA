@@ -1,18 +1,21 @@
-def sap_xep_tri_tuyet_doi(arr):
+def tinh_khong_on_dinh(arr):
 
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
+    n = len(arr)
 
-        while j >= 0 and abs(arr[j]) > abs(key):
-            arr[j + 1] = arr[j]
-            j -= 1
+    for i in range(n):
 
-        arr[j + 1] = key
+        min_index = i
+
+        for j in range(i + 1, n):
+
+            if arr[j][0] < arr[min_index][0]:
+                min_index = j
+
+        arr[i], arr[min_index] = arr[min_index], arr[i]
 
     return arr
 
 
-arr = [-3, 1, -2, 2]
+arr = [(2, 'a'), (2, 'b'), (1, 'c')]
 
-print(sap_xep_tri_tuyet_doi(arr))
+print(tinh_khong_on_dinh(arr))

@@ -1,15 +1,27 @@
-def dem_nghich_the(arr):
+def dem_swap_thuc_te(arr):
 
-    count = 0
+    swap = 0
 
-    for i in range(len(arr)):
-        for j in range(i + 1, len(arr)):
-            if arr[i] > arr[j]:
-                count += 1
+    n = len(arr)
 
-    return count
+    for i in range(n):
+
+        min_index = i
+
+        for j in range(i + 1, n):
+
+            if arr[j] < arr[min_index]:
+                min_index = j
+
+        if min_index != i:
+
+            arr[i], arr[min_index] = arr[min_index], arr[i]
+
+            swap += 1
+
+    return swap
 
 
-arr = [2, 4, 1, 3]
+arr = [1, 2, 3]
 
-print("So nghich the =", dem_nghich_the(arr))
+print(dem_swap_thuc_te(arr))

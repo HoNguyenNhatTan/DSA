@@ -1,17 +1,21 @@
 def sap_xep_tang_dan(arr):
 
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
+    n = len(arr)
 
-        while j >= 0 and arr[j] > key:
-            arr[j + 1] = arr[j]
-            j -= 1
+    for i in range(n):
 
-        arr[j + 1] = key
+        min_index = i
+
+        for j in range(i + 1, n):
+
+            if arr[j] < arr[min_index]:
+                min_index = j
+
+        arr[i], arr[min_index] = arr[min_index], arr[i]
 
     return arr
 
 
 arr = [5, 2, 4, 6, 1, 3]
+
 print(sap_xep_tang_dan(arr))

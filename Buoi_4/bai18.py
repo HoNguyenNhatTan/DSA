@@ -1,26 +1,21 @@
-def so_sanh_cach_chen(arr):
+def so_sanh_swap(arr):
+    selection_swap = 0
+    
+    nums = arr.copy()
 
-    compare_right = 0
-    compare_left = 0
-
-    for i in range(1, len(arr)):
-        j = i - 1
-
-        while j >= 0:
-            compare_right += 1
-            j -= 1
-
-    for i in range(1, len(arr)):
-        j = 0
-
-        while j < i:
-            compare_left += 1
-            j += 1
-
-    print("Right to Left =", compare_right)
-    print("Left to Right =", compare_left)
-
-
-arr = [1, 2, 4, 3, 5]
-
-so_sanh_cach_chen(arr)
+    for i in range(len(nums)):
+        min_index = i
+        
+        for j in range(i + 1, len(nums)):
+            if nums[j] < nums[min_index]:
+                min_index = j
+                
+        if min_index != i:
+            nums[i], nums[min_index] = nums[min_index], nums[i]
+            
+            selection_swap += 1
+            
+    print("Selection swap = ", selection_swap)
+    
+arr = [5, 2, 4, 1, 3]
+so_sanh_swap(arr)  

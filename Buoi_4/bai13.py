@@ -1,18 +1,21 @@
-def kiem_tra_on_dinh(arr):
+def sap_xep_hoc_sinh(arr):
 
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
+    n = len(arr)
 
-        while j >= 0 and arr[j][0] > key[0]:
-            arr[j + 1] = arr[j]
-            j -= 1
+    for i in range(n):
 
-        arr[j + 1] = key
+        min_index = i
+
+        for j in range(i + 1, n):
+
+            if arr[j][1] < arr[min_index][1]:
+                min_index = j
+
+        arr[i], arr[min_index] = arr[min_index], arr[i]
 
     return arr
 
 
-arr = [(2, 'a'), (1, 'b'), (2, 'c')]
+arr = [('An', 8), ('Ba', 5)]
 
-print(kiem_tra_on_dinh(arr))
+print(sap_xep_hoc_sinh(arr))

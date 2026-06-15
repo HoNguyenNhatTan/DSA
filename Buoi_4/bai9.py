@@ -1,36 +1,34 @@
-def tim_vi_tri(arr, left, right, key):
+def double_selection_sort(arr):
 
-    while left <= right:
+    left = 0
+    right = len(arr) - 1
 
-        mid = (left + right) // 2
+    while left < right:
 
-        if arr[mid] > key:
-            right = mid - 1
-        else:
-            left = mid + 1
+        min_index = left
+        max_index = left
 
-    return left
+        for i in range(left, right + 1):
 
+            if arr[i] < arr[min_index]:
+                min_index = i
 
-def binary_insertion_sort(arr):
+            if arr[i] > arr[max_index]:
+                max_index = i
 
-    for i in range(1, len(arr)):
+        arr[left], arr[min_index] = arr[min_index], arr[left]
 
-        key = arr[i]
+        if max_index == left:
+            max_index = min_index
 
-        pos = tim_vi_tri(arr, 0, i - 1, key)
+        arr[right], arr[max_index] = arr[max_index], arr[right]
 
-        j = i - 1
-
-        while j >= pos:
-            arr[j + 1] = arr[j]
-            j -= 1
-
-        arr[pos] = key
+        left += 1
+        right -= 1
 
     return arr
 
 
-arr = [5, 2, 4, 6, 1, 3]
+arr = [5, 1, 4, 2, 8]
 
-print(binary_insertion_sort(arr))
+print(double_selection_sort(arr))

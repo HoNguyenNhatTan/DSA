@@ -1,42 +1,32 @@
 def phan_tich_hieu_nang(arr):
 
     compare = 0
-    shift = 0
+    swap = 0
 
     nums = arr.copy()
 
-    for i in range(1, len(nums)):
+    for i in range(len(nums)):
 
-        key = nums[i]
+        min_index = i
 
-        j = i - 1
-
-        while j >= 0:
+        for j in range(i + 1, len(nums)):
 
             compare += 1
 
-            if nums[j] > key:
+            if nums[j] < nums[min_index]:
+                min_index = j
 
-                nums[j + 1] = nums[j]
+        if min_index != i:
 
-                shift += 1
+            nums[i], nums[min_index] = nums[min_index], nums[i]
 
-                j -= 1
-
-            else:
-                break
-
-        nums[j + 1] = key
+            swap += 1
 
     print("So lan so sanh =", compare)
-    print("So lan shift =", shift)
-    print("Mang sau sap xep =", nums)
+    print("So lan swap =", swap)
+    print(nums)
 
 
-best_case = [1, 2, 3, 4, 5]
-average_case = [3, 1, 4, 5, 2]
-worst_case = [5, 4, 3, 2, 1]
+arr = [5, 4, 3, 2, 1]
 
-print(phan_tich_hieu_nang(best_case))
-print(phan_tich_hieu_nang(average_case))
-print(phan_tich_hieu_nang(worst_case))
+phan_tich_hieu_nang(arr)

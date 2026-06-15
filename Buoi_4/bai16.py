@@ -1,22 +1,21 @@
-def sap_xep_truc_tuyen(stream):
+def sap_xep_tri_tuyet_doi(arr):
 
-    arr = []
+    n = len(arr)
 
-    for value in stream:
+    for i in range(n):
 
-        arr.append(value)
+        min_index = i
 
-        i = len(arr) - 2
+        for j in range(i + 1, n):
 
-        while i >= 0 and arr[i] > value:
-            arr[i + 1] = arr[i]
-            i -= 1
+            if abs(arr[j]) < abs(arr[min_index]):
+                min_index = j
 
-        arr[i + 1] = value
+        arr[i], arr[min_index] = arr[min_index], arr[i]
 
-        print(arr)
+    return arr
 
 
-stream = [5, 2, 8, 1]
+arr = [-3, 1, -2, 2]
 
-sap_xep_truc_tuyen(stream)
+print(sap_xep_tri_tuyet_doi(arr))

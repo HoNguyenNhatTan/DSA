@@ -1,23 +1,19 @@
-def mang_gan_sap_xep(arr):
+def phan_tu_nho_thu_k(arr, k):
 
-    shift = 0
+    for i in range(k):
 
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
+        min_index = i
 
-        while j >= 0 and arr[j] > key:
-            arr[j + 1] = arr[j]
-            shift += 1
-            j -= 1
+        for j in range(i + 1, len(arr)):
 
-        arr[j + 1] = key
+            if arr[j] < arr[min_index]:
+                min_index = j
 
-    print("Shift =", shift)
+        arr[i], arr[min_index] = arr[min_index], arr[i]
 
-    return arr
+    return arr[k - 1]
 
 
-arr = [1, 2, 4, 3, 5]
+arr = [7, 2, 5, 1, 9]
 
-print(mang_gan_sap_xep(arr))
+print(phan_tu_nho_thu_k(arr, 3))

@@ -1,22 +1,32 @@
-def gnome_sort(arr):
-
-    index = 0
-
-    while index < len(arr):
-
-        if index == 0:
-            index += 1
-
-        elif arr[index] >= arr[index - 1]:
-            index += 1
-
-        else:
-            arr[index], arr[index - 1] = arr[index - 1], arr[index]
-            index -= 1
-
+def double_ended_selection(arr):
+    
+    left = 0
+    right = len(arr) - 1
+    
+    while left < right:
+        
+        min_index = left
+        max_index = left
+        
+        for i in range(left, right + 1):
+            
+            if arr[i] < arr[min_index]:
+                min_index =  i
+            
+            if arr[i] > arr[max_index]:
+                max_index = i
+                
+        arr[left], arr[min_index] = arr[min_index], arr[left]
+        
+        if max_index == left:
+            max_index = min_index
+        
+        arr[right], arr[max_index] = arr[max_index], arr[right]
+        
+        left += 1
+        right -= 1
+    
     return arr
 
-
-arr = [3, 2, 1]
-
-print(gnome_sort(arr))
+arr = [9, 3, 7, 1, 5]
+print(double_ended_selection(arr))    

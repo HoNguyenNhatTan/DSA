@@ -2,23 +2,22 @@ def dem_so_sanh(arr):
 
     compare = 0
 
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
+    n = len(arr)
 
-        while j >= 0:
+    for i in range(n):
+
+        min_index = i
+
+        for j in range(i + 1, n):
+
             compare += 1
 
-            if arr[j] > key:
-                arr[j + 1] = arr[j]
-                j -= 1
-            else:
-                break
-
-        arr[j + 1] = key
+            if arr[j] < arr[min_index]:
+                min_index = j
 
     return compare
 
 
-arr = [1, 2, 3]
+arr = [5, 2, 4, 6, 1]
+
 print(dem_so_sanh(arr))

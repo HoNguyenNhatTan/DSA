@@ -1,21 +1,28 @@
-def sap_xep_hoc_sinh(arr):
+class Node:
 
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
-
-        while j >= 0 and (
-            arr[j][1] < key[1] or
-            (arr[j][1] == key[1] and arr[j][0] > key[0])
-        ):
-            arr[j + 1] = arr[j]
-            j -= 1
-
-        arr[j + 1] = key
-
-    return arr
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
 
-arr = [('An', 8), ('Ba', 9), ('Cu', 8)]
+def sap_xep_danh_sach_lien_ket(head):
 
-print(sap_xep_hoc_sinh(arr))
+    current = head
+
+    while current:
+
+        min_node = current
+        temp = current.next
+
+        while temp:
+
+            if temp.data < min_node.data:
+                min_node = temp
+
+            temp = temp.next
+
+        current.data, min_node.data = min_node.data, current.data
+
+        current = current.next
+
+    return head

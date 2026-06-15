@@ -1,20 +1,27 @@
-def dem_dich_chuyen(arr):
+def dem_hoan_doi(arr):
 
-    shift = 0
+    swap = 0
 
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
+    n = len(arr)
 
-        while j >= 0 and arr[j] > key:
-            arr[j + 1] = arr[j]
-            shift += 1
-            j -= 1
+    for i in range(n):
 
-        arr[j + 1] = key
+        min_index = i
 
-    return shift
+        for j in range(i + 1, n):
+
+            if arr[j] < arr[min_index]:
+                min_index = j
+
+        if min_index != i:
+
+            arr[i], arr[min_index] = arr[min_index], arr[i]
+
+            swap += 1
+
+    return swap
 
 
 arr = [3, 2, 1]
-print(dem_dich_chuyen(arr))
+
+print(dem_hoan_doi(arr))

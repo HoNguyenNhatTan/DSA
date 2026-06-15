@@ -1,36 +1,19 @@
-class Node:
+def sap_xep_k_phan_tu(arr, k):
 
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+    for i in range(k):
 
+        min_index = i
 
-def chen_node(sorted_head, new_node):
+        for j in range(i + 1, len(arr)):
 
-    if sorted_head is None or sorted_head.data >= new_node.data:
-        new_node.next = sorted_head
-        return new_node
+            if arr[j] < arr[min_index]:
+                min_index = j
 
-    current = sorted_head
+        arr[i], arr[min_index] = arr[min_index], arr[i]
 
-    while current.next and current.next.data < new_node.data:
-        current = current.next
-
-    new_node.next = current.next
-    current.next = new_node
-
-    return sorted_head
+    return arr
 
 
-def sap_xep_danh_sach_lien_ket(head):
+arr = [5, 3, 1, 4, 2]
 
-    sorted_head = None
-
-    current = head
-
-    while current:
-        next_node = current.next
-        sorted_head = chen_node(sorted_head, current)
-        current = next_node
-
-    return sorted_head
+print(sap_xep_k_phan_tu(arr, 2))
