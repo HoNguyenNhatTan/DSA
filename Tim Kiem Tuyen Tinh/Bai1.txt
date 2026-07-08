@@ -1,0 +1,17 @@
+#Bài 1: Trình bày ý tưởng
+
+- Ý tưởng: Thuật toán tìm kiếm tuyến tính sẽ duyệt lần lượt từng phần tử trong mảng từ đầu đến cuối.
+Nếu gặp phần tử bằng x thì dừng và trả về vị trí.
+Nếu duyệt hết mảng mà không thấy thì trả về -1.
+
+- Input:
+    + Mảng A
+    + Giá trị cần tìm x
+
+- Output:
+    + Vị trí của x trong mảng
+    + Nếu không có thì trả về -1
+
+- Thuật toán dừng khi:
+    + Tìm thấy x
+    + Hoặc đã duyệt hết mảng

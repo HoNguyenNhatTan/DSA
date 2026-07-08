@@ -1,0 +1,13 @@
+#Bài 4: Phân tích độ phức tạp
+
+- Trường hợp tốt nhất:
+1 phép so sánh
+
+- Trường hợp xấu nhất:
+n phép so sánh
+
+- Trường hợp trung bình:
+n/2 phép so sánh
+
+- Độ phức tạp:
+O(n)
